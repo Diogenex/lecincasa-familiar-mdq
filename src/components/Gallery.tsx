@@ -1,42 +1,52 @@
-import { useState } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import useEmblaCarousel from 'embla-carousel-react';
 
-// Placeholder images - replace with actual property photos
+import entradaImg from '@/assets/gallery/entrada.jpg';
+import patioImg from '@/assets/gallery/patio.jpg';
+import comedorImg from '@/assets/gallery/comedor.jpg';
+import livingImg from '@/assets/gallery/living.jpg';
+import frenteImg from '@/assets/gallery/frente.jpg';
+import cocina1Img from '@/assets/gallery/cocina1.jpg';
+import cocina2Img from '@/assets/gallery/cocina2.jpg';
+import lavaderoImg from '@/assets/gallery/lavadero.jpg';
+import cocina3Img from '@/assets/gallery/cocina3.jpg';
+
 const galleryImages = [
-  {
-    src: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop',
-    alt: 'Living comedor con vista',
-    caption: 'Living comedor luminoso',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop',
-    alt: 'Dormitorio principal',
-    caption: 'Dormitorio con cama doble',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&h=600&fit=crop',
-    alt: 'Baño moderno',
-    caption: 'Baño completo',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop',
-    alt: 'Cocina equipada',
-    caption: 'Cocina totalmente equipada',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
-    alt: 'Exterior del complejo',
-    caption: 'Vista exterior',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
-    alt: 'Espacio exterior',
-    caption: 'Área común del complejo',
-  },
+  { src: frenteImg, alt: 'Frente de la casa', caption: 'Frente de Casa LeCin' },
+  { src: entradaImg, alt: 'Entrada', caption: 'Entrada al complejo' },
+  { src: patioImg, alt: 'Patio interno', caption: 'Patio interno' },
+  { src: livingImg, alt: 'Living comedor', caption: 'Living comedor con TV' },
+  { src: comedorImg, alt: 'Comedor', caption: 'Comedor' },
+  { src: cocina1Img, alt: 'Cocina', caption: 'Cocina equipada' },
+  { src: cocina2Img, alt: 'Cocina vista', caption: 'Vista de la cocina' },
+  { src: cocina3Img, alt: 'Cocina completa', caption: 'Cocina completa' },
+  { src: lavaderoImg, alt: 'Lavadero', caption: 'Lavadero' },
 ];
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start' });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
 
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -64,35 +74,75 @@ const Gallery = () => {
     <section id="galeria" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Galería de fotos
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Conocé cada rincón de LeCin antes de tu visita
+            Conocé cada rincón de Casa LeCin antes de tu visita
           </p>
         </div>
 
-        {/* Image Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {galleryImages.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => openLightbox(index)}
-              className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-soft hover:shadow-warm transition-all duration-300"
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                loading="lazy"
+        {/* Carousel */}
+        <div className="relative">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex -ml-4">
+              {galleryImages.map((image, index) => (
+                <div
+                  key={index}
+                  className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4"
+                >
+                  <button
+                    onClick={() => openLightbox(index)}
+                    className="group relative aspect-[4/3] w-full overflow-hidden rounded-xl shadow-soft hover:shadow-warm transition-all duration-300"
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <p className="absolute bottom-4 left-4 right-4 text-primary-foreground text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
+                      {image.caption}
+                    </p>
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Buttons */}
+          <button
+            onClick={scrollPrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/90 shadow-soft flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+            aria-label="Anterior"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-card/90 shadow-soft flex items-center justify-center text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
+            aria-label="Siguiente"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-6">
+            {galleryImages.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => emblaApi?.scrollTo(index)}
+                className={`w-2 h-2 rounded-full transition-all ${
+                  index === selectedIndex
+                    ? 'bg-primary w-6'
+                    : 'bg-primary/30 hover:bg-primary/50'
+                }`}
+                aria-label={`Ir a imagen ${index + 1}`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <p className="absolute bottom-4 left-4 right-4 text-primary-foreground text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-2 group-hover:translate-y-0">
-                {image.caption}
-              </p>
-            </button>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 

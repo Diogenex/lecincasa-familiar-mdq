@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logoLecin from '@/assets/logo-lecin.jpg';
 
 const navLinks = [
   { href: '#inicio', label: 'Inicio' },
@@ -34,19 +35,21 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-card/95 backdrop-blur-md shadow-soft py-3'
-          : 'bg-transparent py-4'
+          ? 'bg-card/95 backdrop-blur-md shadow-soft py-2'
+          : 'bg-transparent py-3'
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => scrollToSection('#inicio')}
-          className="flex items-center gap-2 group"
+          className="flex items-center group"
         >
-          <span className="font-display text-2xl font-bold text-primary group-hover:text-primary/80 transition-colors">
-            LeCin
-          </span>
+          <img 
+            src={logoLecin} 
+            alt="Casa LeCin - Complejo de viviendas" 
+            className="h-12 md:h-14 w-auto"
+          />
         </button>
 
         {/* Desktop Navigation */}

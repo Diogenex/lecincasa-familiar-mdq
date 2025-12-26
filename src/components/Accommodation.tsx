@@ -1,9 +1,10 @@
-import { Users, Bed, Bath, Wifi, Car, Snowflake, Utensils, Tv, ShowerHead, Coffee } from 'lucide-react';
+import { Users, Bed, Bath, Wifi, Snowflake, Utensils, Tv, ShowerHead, Coffee, TreePine } from 'lucide-react';
 
 const features = [
-  { icon: Users, label: 'Capacidad', value: 'Hasta 4 personas' },
-  { icon: Bed, label: 'Dormitorios', value: '1 dormitorio' },
-  { icon: Bath, label: 'Baños', value: '1 baño completo' },
+  { icon: Users, label: 'Capacidad', value: 'Hasta 5 personas' },
+  { icon: Bed, label: 'Dormitorios', value: '2 dormitorios' },
+  { icon: Bath, label: 'Baño', value: '1 baño (ducha)' },
+  { icon: TreePine, label: 'Exterior', value: 'Patio interno' },
 ];
 
 const amenities = [
@@ -13,7 +14,6 @@ const amenities = [
   { icon: Utensils, label: 'Cocina equipada' },
   { icon: Coffee, label: 'Cafetera y utensilios' },
   { icon: ShowerHead, label: 'Agua caliente' },
-  { icon: Car, label: 'Estacionamiento' },
 ];
 
 const Accommodation = () => {
@@ -32,7 +32,7 @@ const Accommodation = () => {
         </div>
 
         {/* Main Features */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {features.map((feature) => (
             <div
               key={feature.label}
@@ -56,7 +56,7 @@ const Accommodation = () => {
           <h3 className="font-display text-2xl font-semibold text-foreground mb-8 text-center">
             Servicios incluidos
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {amenities.map((amenity) => (
               <div
                 key={amenity.label}
