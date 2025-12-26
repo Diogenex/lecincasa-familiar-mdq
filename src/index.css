@@ -11,113 +11,112 @@
 @import '@fontsource/dm-sans/600.css';
 @import '@fontsource/dm-sans/700.css';
 
-/* LeCin Design System - Warm, Family-Friendly Coastal Aesthetic */
+/* LeCin Design System - Warm Orange from Logo */
 
 @layer base {
   :root {
     /* Warm cream background */
-    --background: 40 33% 97%;
-    --foreground: 220 25% 15%;
+    --background: 35 30% 97%;
+    --foreground: 25 20% 15%;
 
     /* Cards with soft warmth */
-    --card: 40 30% 99%;
-    --card-foreground: 220 25% 15%;
+    --card: 35 25% 99%;
+    --card-foreground: 25 20% 15%;
 
-    --popover: 40 30% 99%;
-    --popover-foreground: 220 25% 15%;
+    --popover: 35 25% 99%;
+    --popover-foreground: 25 20% 15%;
 
-    /* Primary: Terracotta/Coral - warm and welcoming */
-    --primary: 15 75% 55%;
-    --primary-foreground: 40 30% 99%;
+    /* Primary: Orange from LeCin logo */
+    --primary: 25 85% 52%;
+    --primary-foreground: 35 25% 99%;
 
-    /* Secondary: Soft sage for balance */
-    --secondary: 160 20% 92%;
-    --secondary-foreground: 160 25% 25%;
+    /* Secondary: Soft warm beige */
+    --secondary: 30 25% 92%;
+    --secondary-foreground: 25 30% 25%;
 
     /* Muted: Warm gray tones */
-    --muted: 40 15% 92%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 30 15% 92%;
+    --muted-foreground: 25 10% 45%;
 
-    /* Accent: Deep teal for contrast */
-    --accent: 185 45% 35%;
-    --accent-foreground: 40 30% 99%;
+    /* Accent: Deep warm brown for contrast */
+    --accent: 20 35% 35%;
+    --accent-foreground: 35 25% 99%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 40 30% 99%;
+    --destructive-foreground: 35 25% 99%;
 
     /* Warm subtle borders */
-    --border: 40 20% 88%;
-    --input: 40 20% 88%;
-    --ring: 15 75% 55%;
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 25 85% 52%;
 
     --radius: 0.75rem;
 
     /* Custom LeCin tokens */
-    --sand: 40 35% 85%;
-    --ocean: 200 60% 45%;
-    --sunset: 25 90% 60%;
-    --terracotta: 15 75% 55%;
-    --cream: 40 33% 97%;
-    --navy: 220 40% 20%;
+    --lecin-orange: 25 85% 52%;
+    --lecin-orange-light: 30 80% 65%;
+    --lecin-orange-dark: 20 75% 45%;
+    --cream: 35 30% 97%;
+    --charcoal: 25 20% 20%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(15 75% 55% / 0.9), hsl(25 90% 60% / 0.85));
-    --gradient-warm: linear-gradient(180deg, hsl(40 33% 97%), hsl(40 30% 94%));
-    --gradient-sunset: linear-gradient(135deg, hsl(25 90% 60%), hsl(15 75% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(25 85% 52% / 0.9), hsl(30 80% 60% / 0.85));
+    --gradient-warm: linear-gradient(180deg, hsl(35 30% 97%), hsl(30 25% 94%));
+    --gradient-orange: linear-gradient(135deg, hsl(30 80% 60%), hsl(25 85% 52%));
 
     /* Shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(220 25% 15% / 0.08);
-    --shadow-warm: 0 8px 30px -8px hsl(15 75% 55% / 0.15);
-    --shadow-elevated: 0 20px 50px -15px hsl(220 25% 15% / 0.12);
+    --shadow-soft: 0 4px 20px -4px hsl(25 20% 15% / 0.08);
+    --shadow-warm: 0 8px 30px -8px hsl(25 85% 52% / 0.15);
+    --shadow-elevated: 0 20px 50px -15px hsl(25 20% 15% / 0.12);
 
     /* Sidebar */
-    --sidebar-background: 40 30% 98%;
-    --sidebar-foreground: 220 25% 25%;
-    --sidebar-primary: 15 75% 55%;
-    --sidebar-primary-foreground: 40 30% 99%;
-    --sidebar-accent: 40 20% 94%;
-    --sidebar-accent-foreground: 220 25% 25%;
-    --sidebar-border: 40 20% 90%;
-    --sidebar-ring: 15 75% 55%;
+    --sidebar-background: 35 25% 98%;
+    --sidebar-foreground: 25 20% 25%;
+    --sidebar-primary: 25 85% 52%;
+    --sidebar-primary-foreground: 35 25% 99%;
+    --sidebar-accent: 30 20% 94%;
+    --sidebar-accent-foreground: 25 20% 25%;
+    --sidebar-border: 30 20% 90%;
+    --sidebar-ring: 25 85% 52%;
   }
 
   .dark {
-    --background: 220 25% 10%;
-    --foreground: 40 20% 95%;
+    --background: 25 20% 10%;
+    --foreground: 35 20% 95%;
 
-    --card: 220 25% 12%;
-    --card-foreground: 40 20% 95%;
+    --card: 25 20% 12%;
+    --card-foreground: 35 20% 95%;
 
-    --popover: 220 25% 12%;
-    --popover-foreground: 40 20% 95%;
+    --popover: 25 20% 12%;
+    --popover-foreground: 35 20% 95%;
 
-    --primary: 15 70% 60%;
-    --primary-foreground: 220 25% 10%;
+    --primary: 25 80% 55%;
+    --primary-foreground: 25 20% 10%;
 
-    --secondary: 220 20% 18%;
-    --secondary-foreground: 40 20% 95%;
+    --secondary: 25 15% 18%;
+    --secondary-foreground: 35 20% 95%;
 
-    --muted: 220 20% 18%;
-    --muted-foreground: 40 15% 65%;
+    --muted: 25 15% 18%;
+    --muted-foreground: 35 15% 65%;
 
-    --accent: 185 40% 45%;
-    --accent-foreground: 220 25% 10%;
+    --accent: 30 50% 50%;
+    --accent-foreground: 25 20% 10%;
 
     --destructive: 0 70% 50%;
-    --destructive-foreground: 40 20% 95%;
+    --destructive-foreground: 35 20% 95%;
 
-    --border: 220 20% 20%;
-    --input: 220 20% 20%;
-    --ring: 15 70% 60%;
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 25 80% 55%;
 
-    --sidebar-background: 220 25% 8%;
-    --sidebar-foreground: 40 20% 95%;
-    --sidebar-primary: 15 70% 60%;
-    --sidebar-primary-foreground: 220 25% 10%;
-    --sidebar-accent: 220 20% 15%;
-    --sidebar-accent-foreground: 40 20% 95%;
-    --sidebar-border: 220 20% 18%;
-    --sidebar-ring: 15 70% 60%;
+    --sidebar-background: 25 20% 8%;
+    --sidebar-foreground: 35 20% 95%;
+    --sidebar-primary: 25 80% 55%;
+    --sidebar-primary-foreground: 25 20% 10%;
+    --sidebar-accent: 25 15% 15%;
+    --sidebar-accent-foreground: 35 20% 95%;
+    --sidebar-border: 25 15% 18%;
+    --sidebar-ring: 25 80% 55%;
   }
 }
 
@@ -146,7 +145,7 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-sunset);
+    background-image: var(--gradient-orange);
   }
 
   .bg-gradient-hero {

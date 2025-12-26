@@ -29,7 +29,7 @@ const pointsOfInterest = [
 ];
 
 const Location = () => {
-  const address = 'Mar del Plata, Buenos Aires, Argentina';
+  const address = 'San Salvador 3734, Mar del Plata, Buenos Aires, Argentina';
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
   const openInMaps = () => {
@@ -54,17 +54,17 @@ const Location = () => {
           {/* Map and Address */}
           <div>
             <div className="bg-card rounded-2xl shadow-soft overflow-hidden">
-              {/* Map placeholder - replace with actual embed */}
+              {/* Map */}
               <div className="aspect-[4/3] bg-muted relative">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50082.27803199621!2d-57.5902619!3d-38.0054771!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d948ed57b8a7%3A0xa80a92f7d3f3e88!2sMar%20del%20Plata%2C%20Buenos%20Aires%20Province%2C%20Argentina!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.8!2d-57.55!3d-38.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9584d948ed57b8a7%3A0xa80a92f7d3f3e88!2sSan%20Salvador%203734%2C%20Mar%20del%20Plata%2C%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Ubicación de LeCin"
+                  title="Ubicación de Casa LeCin"
                   className="absolute inset-0"
                 />
               </div>
@@ -74,7 +74,7 @@ const Location = () => {
                   <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-medium text-foreground">Dirección</p>
-                    <p className="text-muted-foreground">{address}</p>
+                    <p className="text-muted-foreground">San Salvador 3734, Mar del Plata</p>
                   </div>
                 </div>
                 
