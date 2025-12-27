@@ -6,6 +6,8 @@ import { DateRange } from 'react-day-picker';
 import { format, addDays } from 'date-fns';
 import { es } from 'date-fns/locale';
 
+const WHATSAPP_NUMBER = '5492235959372';
+
 // Example blocked dates - replace with actual data
 const blockedDates = [
   { from: new Date(2024, 11, 20), to: new Date(2024, 11, 28) },
@@ -37,15 +39,15 @@ const Availability = () => {
   };
 
   const openWhatsAppWithDates = () => {
-    let message = '¡Hola! Me interesa reservar el alojamiento LeCin.';
+    let message = '¡Hola! Estoy consultando por Casa LeCin. ¿Podrían darme información sobre disponibilidad y precios?';
     
     if (selectedRange?.from && selectedRange?.to) {
       const fromDate = format(selectedRange.from, "d 'de' MMMM yyyy", { locale: es });
       const toDate = format(selectedRange.to, "d 'de' MMMM yyyy", { locale: es });
-      message = `¡Hola! Me interesa reservar el alojamiento LeCin para las siguientes fechas:\n\n📅 Check-in: ${fromDate}\n📅 Check-out: ${toDate}\n\n¿Está disponible?`;
+      message = `¡Hola! Estoy consultando por Casa LeCin para las siguientes fechas:\n\n📅 Check-in: ${fromDate}\n📅 Check-out: ${toDate}\n\n¿Está disponible? ¿Cuál es el precio?`;
     }
     
-    window.open(`https://wa.me/5492235000000?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (

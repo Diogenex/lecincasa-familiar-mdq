@@ -1,5 +1,8 @@
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logoLecin from '@/assets/logo-lecin.jpg';
+
+const WHATSAPP_NUMBER = '5492235959372';
 
 const Hero = () => {
   const scrollToAccommodation = () => {
@@ -11,9 +14,9 @@ const Hero = () => {
 
   const openWhatsApp = () => {
     const message = encodeURIComponent(
-      '¡Hola! Me interesa conocer más sobre el alojamiento LeCin en Mar del Plata. ¿Podrían darme más información?'
+      '¡Hola! Estoy consultando por Casa LeCin. ¿Podrían darme información sobre disponibilidad y precios?'
     );
-    window.open(`https://wa.me/5492235000000?text=${message}`, '_blank');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
   };
 
   return (
@@ -33,9 +36,11 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto">
           {/* Logo/Brand */}
           <div className="mb-8">
-            <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-bold text-primary mb-2">
-              LeCin
-            </h1>
+            <img 
+              src={logoLecin} 
+              alt="Casa LeCin - Complejo de viviendas" 
+              className="h-32 md:h-40 lg:h-48 w-auto mx-auto mb-4"
+            />
             <p className="text-lg md:text-xl text-muted-foreground tracking-wide">
               Alquiler temporario en Mar del Plata
             </p>
@@ -44,9 +49,9 @@ const Hero = () => {
           {/* Welcome text */}
           <div className="mb-10">
             <p className="text-lg md:text-xl text-foreground/80 leading-relaxed max-w-2xl mx-auto">
-              Bienvenidos a <span className="font-semibold text-primary">LeCin</span>, 
-              un espacio pensado para disfrutar en familia. Somos parte de un complejo 
-              familiar donde cada detalle está cuidado para que tu estadía sea especial.
+              Bienvenidos a Casa LeCin, un espacio pensado para disfrutar en familia. 
+              Somos parte de un complejo familiar donde cada detalle está cuidado 
+              para que tu estadía sea especial.
             </p>
           </div>
 
