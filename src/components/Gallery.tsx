@@ -11,6 +11,9 @@ import cocina1Img from '@/assets/gallery/cocina1.jpg';
 import cocina2Img from '@/assets/gallery/cocina2.jpg';
 import lavaderoImg from '@/assets/gallery/lavadero.jpg';
 import cocina3Img from '@/assets/gallery/cocina3.jpg';
+import dormitorio1Img from '@/assets/gallery/dormitorio1.jpg';
+import dormitorio2Img from '@/assets/gallery/dormitorio2.jpg';
+import banoImg from '@/assets/gallery/bano.jpg';
 
 const galleryImages = [
   { src: frenteImg, alt: 'Frente de la casa', caption: 'Frente de Casa LeCin' },
@@ -18,6 +21,9 @@ const galleryImages = [
   { src: patioImg, alt: 'Patio interno', caption: 'Patio interno' },
   { src: livingImg, alt: 'Living comedor', caption: 'Living comedor con TV' },
   { src: comedorImg, alt: 'Comedor', caption: 'Comedor' },
+  { src: dormitorio1Img, alt: 'Dormitorio con cucheta', caption: 'Dormitorio con cucheta' },
+  { src: dormitorio2Img, alt: 'Dormitorio principal', caption: 'Dormitorio principal' },
+  { src: banoImg, alt: 'Baño', caption: 'Baño completo' },
   { src: cocina1Img, alt: 'Cocina', caption: 'Cocina equipada' },
   { src: cocina2Img, alt: 'Cocina vista', caption: 'Vista de la cocina' },
   { src: cocina3Img, alt: 'Cocina completa', caption: 'Cocina completa' },
