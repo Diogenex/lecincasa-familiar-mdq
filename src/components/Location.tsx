@@ -5,25 +5,25 @@ const pointsOfInterest = [
   {
     category: '🏖️ Playas',
     places: [
-      { name: 'Playa Grande', distance: '2 km' },
-      { name: 'Playa Varese', distance: '2.5 km' },
-      { name: 'Playa Chica', distance: '3 km' },
+      { name: 'Playa Popular (Punta Mogotes)', distance: '2.5 km' },
+      { name: 'Complejo Punta Mogotes', distance: '3 km' },
+      { name: 'Playa Alfar', distance: '4 km' },
     ],
   },
   {
     category: '🛒 Zonas comerciales',
     places: [
-      { name: 'Centro comercial', distance: '1.5 km' },
-      { name: 'Supermercado', distance: '500 m' },
-      { name: 'Farmacia', distance: '600 m' },
+      { name: 'Supermercado Carrefour', distance: '800 m' },
+      { name: 'Farmacia', distance: '400 m' },
+      { name: 'Panadería/Despensa', distance: '200 m' },
     ],
   },
   {
     category: '📍 Puntos de interés',
     places: [
-      { name: 'Terminal de ómnibus', distance: '4 km' },
-      { name: 'Centro de Mar del Plata', distance: '3 km' },
-      { name: 'Casino Central', distance: '3.5 km' },
+      { name: 'Terminal de ómnibus', distance: '5 km' },
+      { name: 'Centro de Mar del Plata', distance: '6 km' },
+      { name: 'Faro Punta Mogotes', distance: '3.5 km' },
     ],
   },
 ];

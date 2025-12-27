@@ -6,7 +6,7 @@ const WHATSAPP_NUMBER = '5492235959372';
 
 const Hero = () => {
   const scrollToAccommodation = () => {
-    const element = document.querySelector('#alojamiento');
+    const element = document.querySelector('#comodidades');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
