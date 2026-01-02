@@ -5,27 +5,29 @@ const pointsOfInterest = [
   {
     category: '🏖️ Playas',
     places: [
-      { name: 'Playa Punta Mogotes', distance: '1.8 km' },
-      { name: 'Complejo Balneario Punta Mogotes', distance: '2 km' },
-      { name: 'Playa Alfonsina', distance: '2.5 km' },
+      { name: 'Playa Punta Mogotes', distance: '3 km (8 min 🚗)' },
+      { name: 'Playa Grande', distance: '4,5 km (10 min 🚗)' },
+      { name: 'Playa Varese', distance: '6 km (13 min 🚗)' },
+      { name: 'Playa del Faro', distance: '7,5 km (14 min 🚗)' },
     ],
   },
   {
     category: '🛒 Zonas comerciales',
     places: [
-      { name: 'Supermercado Día', distance: '300 m' },
-      { name: 'Farmacia del Pueblo', distance: '400 m' },
-      { name: 'Panadería / Almacén', distance: '150 m' },
-      { name: 'Carrefour Express', distance: '600 m' },
+      { name: 'Panadería / Almacén / Verdulería', distance: '150 metros' },
+      { name: 'Supermercado Vea', distance: '250 metros' },
+      { name: '💊 Farmacia Puerto', distance: '300 metros' },
+      { name: 'Centro Comercial del Puerto', distance: '1,6 km (5 min 🚗)' },
+      { name: 'Bendu – Centro Comercial', distance: '2 km (5 min 🚗)' },
     ],
   },
   {
     category: '📍 Puntos de interés',
     places: [
-      { name: 'Faro Punta Mogotes', distance: '2.2 km' },
-      { name: 'Aquarium Mar del Plata', distance: '3 km' },
-      { name: 'Centro de Mar del Plata', distance: '5.5 km' },
-      { name: 'Terminal de ómnibus', distance: '4.5 km' },
+      { name: 'Gruta de Lourdes', distance: '1 km (3 min 🚗)' },
+      { name: 'Banquina de los Pescadores', distance: '2 km (6 min 🚗)' },
+      { name: '🌳 Reserva Forestal Bosque Peralta Ramos', distance: '5 km (11 min 🚗)' },
+      { name: '🚶 Peatonal San Martín', distance: '7 km (20 min 🚗)' },
     ],
   },
 ];

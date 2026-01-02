@@ -1,10 +1,29 @@
 import { ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logoLecin from '@/assets/logo-lecin.jpg';
+import { useState, useEffect } from 'react';
+
+// Import gallery images for background
+import frente from '@/assets/gallery/frente.jpg';
+import living from '@/assets/gallery/living.jpg';
+import comedor from '@/assets/gallery/comedor.jpg';
+import dormitorio1 from '@/assets/gallery/dormitorio1.jpg';
+import patio from '@/assets/gallery/patio.jpg';
+
+const backgroundImages = [frente, living, comedor, dormitorio1, patio];
 
 const WHATSAPP_NUMBER = '5492235959372';
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToAccommodation = () => {
     const element = document.querySelector('#comodidades');
     if (element) {
@@ -24,12 +43,20 @@ const Hero = () => {
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background with gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-secondary/20" />
+      {/* Background images with fade transition */}
+      {backgroundImages.map((image, index) => (
+        <div
+          key={index}
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+          style={{
+            backgroundImage: `url(${image})`,
+            opacity: index === currentImageIndex ? 1 : 0,
+          }}
+        />
+      ))}
       
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+      {/* Dark overlay for text legibility */}
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20 text-center">
@@ -39,16 +66,16 @@ const Hero = () => {
             <img 
               src={logoLecin} 
               alt="Casa LeCin - Complejo de viviendas" 
-              className="h-32 md:h-40 lg:h-48 w-auto mx-auto mb-4"
+              className="h-32 md:h-40 lg:h-48 w-auto mx-auto mb-4 rounded-lg shadow-lg"
             />
-            <p className="text-lg md:text-xl text-muted-foreground tracking-wide">
+            <p className="text-lg md:text-xl text-white/90 tracking-wide">
               Alquiler temporario en Mar del Plata
             </p>
           </div>
 
           {/* Welcome text */}
           <div className="mb-10">
-            <p className="text-lg md:text-xl text-foreground/80 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl mx-auto">
               Bienvenidos a Casa LeCin, un espacio pensado para disfrutar en familia. 
               Somos parte de un complejo familiar donde cada detalle está cuidado 
               para que tu estadía sea especial.
@@ -76,6 +103,7 @@ const Hero = () => {
               variant="glass"
               size="lg"
               onClick={scrollToAccommodation}
+              className="text-white border-white/30 hover:bg-white/20"
             >
               Conocer más
             </Button>
@@ -85,7 +113,7 @@ const Hero = () => {
         {/* Scroll indicator */}
         <button
           onClick={scrollToAccommodation}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors animate-bounce"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 hover:text-white transition-colors animate-bounce"
           aria-label="Scroll to content"
         >
           <ArrowDown size={28} />
