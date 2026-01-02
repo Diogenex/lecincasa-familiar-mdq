@@ -56,7 +56,10 @@ const RentalConditions = () => {
             Condiciones de Alquiler
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Información importante para tu estadía en Casa LeCin
+            Con mucho esfuerzo hemos acondicionado nuestra casa para que Uds. disfruten de unas confortables vacaciones. Esperamos sepan entender algunos de los requisitos o condiciones.
+          </p>
+          <p className="text-muted-foreground text-base max-w-2xl mx-auto mt-4 italic">
+            Gracias por consultarnos y agradecemos su comentario para mejorar nuestros servicios.
           </p>
         </div>
 

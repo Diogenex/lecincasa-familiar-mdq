@@ -47,16 +47,21 @@ const Hero = () => {
       {backgroundImages.map((image, index) => (
         <div
           key={index}
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+          className="absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out"
           style={{
-            backgroundImage: `url(${image})`,
             opacity: index === currentImageIndex ? 1 : 0,
           }}
-        />
+        >
+          <img 
+            src={image} 
+            alt=""
+            className="w-full h-full object-cover object-center brightness-110 contrast-[0.95] saturate-[1.05]"
+          />
+        </div>
       ))}
       
-      {/* Dark overlay for text legibility */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* Gradient overlay for text legibility - softer than pure black */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20 text-center">
