@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Home, Sofa, Image, MapPin, CalendarDays } from 'lucide-react';
+import { Home, Sofa, Image, MapPin, CalendarDays, ClipboardList } from 'lucide-react';
 import logoLecin from '@/assets/logo-lecin.jpg';
 
 const navLinks = [
@@ -8,6 +8,7 @@ const navLinks = [
   { href: '#galeria', label: 'Galería', icon: Image },
   { href: '#ubicacion', label: 'Ubicación', icon: MapPin },
   { href: '#disponibilidad', label: 'Disponibilidad', icon: CalendarDays },
+  { href: '#condiciones', label: 'Condiciones', icon: ClipboardList },
 ];
 
 const Header = () => {

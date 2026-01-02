@@ -5,25 +5,27 @@ const pointsOfInterest = [
   {
     category: '🏖️ Playas',
     places: [
-      { name: 'Playa Popular (Punta Mogotes)', distance: '2.5 km' },
-      { name: 'Complejo Punta Mogotes', distance: '3 km' },
-      { name: 'Playa Alfar', distance: '4 km' },
+      { name: 'Playa Punta Mogotes', distance: '1.8 km' },
+      { name: 'Complejo Balneario Punta Mogotes', distance: '2 km' },
+      { name: 'Playa Alfonsina', distance: '2.5 km' },
     ],
   },
   {
     category: '🛒 Zonas comerciales',
     places: [
-      { name: 'Supermercado Carrefour', distance: '800 m' },
-      { name: 'Farmacia', distance: '400 m' },
-      { name: 'Panadería/Despensa', distance: '200 m' },
+      { name: 'Supermercado Día', distance: '300 m' },
+      { name: 'Farmacia del Pueblo', distance: '400 m' },
+      { name: 'Panadería / Almacén', distance: '150 m' },
+      { name: 'Carrefour Express', distance: '600 m' },
     ],
   },
   {
     category: '📍 Puntos de interés',
     places: [
-      { name: 'Terminal de ómnibus', distance: '5 km' },
-      { name: 'Centro de Mar del Plata', distance: '6 km' },
-      { name: 'Faro Punta Mogotes', distance: '3.5 km' },
+      { name: 'Faro Punta Mogotes', distance: '2.2 km' },
+      { name: 'Aquarium Mar del Plata', distance: '3 km' },
+      { name: 'Centro de Mar del Plata', distance: '5.5 km' },
+      { name: 'Terminal de ómnibus', distance: '4.5 km' },
     ],
   },
 ];

@@ -5,6 +5,7 @@ import Accommodation from '@/components/Accommodation';
 import Gallery from '@/components/Gallery';
 import Location from '@/components/Location';
 import Availability from '@/components/Availability';
+import RentalConditions from '@/components/RentalConditions';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
@@ -41,6 +42,7 @@ const Index = () => {
           <Gallery />
           <Location />
           <Availability />
+          <RentalConditions />
         </main>
         <Footer />
         <WhatsAppButton />
