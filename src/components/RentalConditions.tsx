@@ -24,12 +24,7 @@ const conditions = [
   {
     emoji: '💲',
     title: 'Depósito en garantía',
-    content: '$150.000 (reembolsable si la vivienda se entrega en las mismas condiciones que fue alquilada).',
-  },
-  {
-    emoji: '‼️',
-    title: 'Grupos de jóvenes',
-    content: 'Reserva del valor de 1 noche (no reembolsable) y saldo al ingresar. Depósito en garantía de $250.000 (reembolsable si se entrega la vivienda en las mismas condiciones).',
+    content: 'Se solicita un monto fijo, reembolsable si la vivienda se entrega en las mismas condiciones que fue alquilada.',
   },
   {
     emoji: '🏠',
@@ -42,14 +37,9 @@ const conditions = [
     content: 'Prohibido el ingreso de personas no declaradas en la reserva. Se cobrará extra por noche de alojamiento.',
   },
   {
-    emoji: '🔑',
-    title: 'Extravío de llaves',
-    content: 'Tiene costo adicional: $30.000 por cada llave.',
-  },
-  {
     emoji: '🧹',
     title: 'Servicio de limpieza',
-    content: 'Se abona por única vez $25.000 (incluye lavado de ropa de cama, insumos de limpieza y aseo).',
+    content: 'Se abona por única vez e incluye lavado de ropa de cama, insumos de limpieza y artículos de aseo.',
   },
 ];
 
