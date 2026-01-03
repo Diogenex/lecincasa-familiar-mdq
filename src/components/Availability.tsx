@@ -47,6 +47,22 @@ const Availability = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-card rounded-2xl shadow-soft p-6 md:p-10">
+            {/* Google Calendar Embed - Free/Busy Only */}
+            <div className="mb-8">
+              <h3 className="text-lg font-medium text-foreground mb-4 text-center">Calendario de disponibilidad</h3>
+              <div className="w-full overflow-hidden rounded-lg border border-border">
+                <iframe
+                  src="https://calendar.google.com/calendar/embed?src=a98435e579b0be97df0f1794c5d0195f1382eb3937619fca29c8e8bdf8efc8de%40group.calendar.google.com&ctz=America%2FArgentina%2FBuenos_Aires&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+                  className="w-full h-[400px] md:h-[450px] border-0"
+                  scrolling="no"
+                  title="Calendario de disponibilidad Casa LeCin"
+                />
+              </div>
+              <p className="text-sm text-muted-foreground text-center mt-3">
+                Las fechas marcadas están ocupadas
+              </p>
+            </div>
+
             {/* Legend */}
             <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm">
               <div className="flex items-center gap-2">
@@ -59,7 +75,7 @@ const Availability = () => {
               </div>
             </div>
 
-            {/* Interactive Calendar */}
+            {/* Interactive Calendar for WhatsApp */}
             <div className="flex justify-center mb-8">
               <Calendar
                 mode="range"
