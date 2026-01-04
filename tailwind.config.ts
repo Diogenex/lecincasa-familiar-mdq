@@ -71,7 +71,7 @@ export default {
         sunset: "hsl(var(--sunset))",
         terracotta: "hsl(var(--terracotta))",
         cream: "hsl(var(--cream))",
-        navy: "hsl(var(--navy))",
+        charcoal: "hsl(var(--charcoal))",
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
-import { Info, CalendarDays } from 'lucide-react';
-import { format } from 'date-fns';
+import { Info, CalendarDays, Loader2 } from 'lucide-react';
+import { format, isSameDay } from 'date-fns';
 import { es } from 'date-fns/locale';
 import type { DateRange } from 'react-day-picker';
+import { useGoogleCalendarAvailability } from '@/hooks/useGoogleCalendarAvailability';
 
 const WHATSAPP_NUMBER = '5492235959372';
 
 const Availability = () => {
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
+  const { busyDates, isLoading, error } = useGoogleCalendarAvailability();
 
   const openWhatsApp = () => {
     let message = '¡Hola! Estoy consultando por Casa LeCin.';
@@ -32,6 +34,17 @@ const Availability = () => {
     setDateRange(range);
   };
 
+  // Function to check if a date is busy
+  const isDateBusy = (date: Date) => {
+    return busyDates.some(busyDate => isSameDay(busyDate, date));
+  };
+
+  // Disable past dates and busy dates
+  const disabledDays = [
+    { before: new Date() },
+    ...busyDates
+  ];
+
   return (
     <section id="disponibilidad" className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
@@ -47,21 +60,10 @@ const Availability = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="bg-card rounded-2xl shadow-soft p-6 md:p-10">
-            {/* Google Calendar Embed - Free/Busy Only */}
-            <div className="mb-8">
-              <h3 className="text-lg font-medium text-foreground mb-4 text-center">Calendario de disponibilidad</h3>
-              <div className="w-full overflow-hidden rounded-lg border border-border">
-                <iframe
-                  src="https://calendar.google.com/calendar/embed?src=a98435e579b0be97df0f1794c5d0195f1382eb3937619fca29c8e8bdf8efc8de%40group.calendar.google.com&ctz=America%2FArgentina%2FBuenos_Aires&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
-                  className="w-full h-[400px] md:h-[450px] border-0"
-                  scrolling="no"
-                  title="Calendario de disponibilidad Casa LeCin"
-                />
-              </div>
-              <p className="text-sm text-muted-foreground text-center mt-3">
-                Las fechas marcadas están ocupadas
-              </p>
-            </div>
+            {/* Calendar Title */}
+            <h3 className="text-lg font-medium text-foreground mb-6 text-center">
+              Calendario de disponibilidad
+            </h3>
 
             {/* Legend */}
             <div className="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm">
@@ -70,12 +72,32 @@ const Availability = () => {
                 <span className="text-muted-foreground">Fechas seleccionadas</span>
               </div>
               <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded bg-destructive/20 border border-destructive/40" />
+                <span className="text-muted-foreground">Ocupado</span>
+              </div>
+              <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded bg-card border border-border" />
                 <span className="text-muted-foreground">Disponible</span>
               </div>
             </div>
 
-            {/* Interactive Calendar for WhatsApp */}
+            {/* Loading State */}
+            {isLoading && (
+              <div className="flex items-center justify-center py-8 mb-8">
+                <Loader2 className="w-6 h-6 animate-spin text-primary mr-2" />
+                <span className="text-muted-foreground">Cargando disponibilidad...</span>
+              </div>
+            )}
+
+            {/* Error State */}
+            {error && !isLoading && (
+              <div className="text-center py-4 mb-8 text-muted-foreground">
+                <p>{error}</p>
+                <p className="text-sm mt-2">El calendario muestra fechas orientativas</p>
+              </div>
+            )}
+
+            {/* Interactive Calendar */}
             <div className="flex justify-center mb-8">
               <Calendar
                 mode="range"
@@ -83,7 +105,13 @@ const Availability = () => {
                 onSelect={handleDateSelect}
                 numberOfMonths={2}
                 locale={es}
-                disabled={{ before: new Date() }}
+                disabled={disabledDays}
+                modifiers={{
+                  busy: busyDates
+                }}
+                modifiersClassNames={{
+                  busy: 'bg-destructive/20 text-destructive line-through opacity-60'
+                }}
                 className="rounded-lg border border-border bg-background p-4 pointer-events-auto"
               />
             </div>
@@ -108,8 +136,8 @@ const Availability = () => {
             <div className="flex items-start gap-3 text-sm text-muted-foreground mb-6 p-4 bg-muted/50 rounded-lg">
               <Info className="w-5 h-5 flex-shrink-0 mt-0.5" />
               <p>
-                Seleccioná fecha de entrada y salida en el calendario. 
-                Luego hacé clic en el botón para enviar tu consulta por WhatsApp.
+                Este calendario es orientativo. Seleccioná fecha de entrada y salida, 
+                luego consultá por WhatsApp para confirmar disponibilidad y reservar.
               </p>
             </div>
 
