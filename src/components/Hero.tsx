@@ -49,7 +49,11 @@ const Hero = () => {
     <section
       id="inicio"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      style={{ backgroundColor: 'hsl(30 25% 92%)' }}
     >
+      {/* Warm neutral background base */}
+      <div className="absolute inset-0 bg-secondary" />
+      
       {/* Background images with fade transition */}
       {backgroundImages.map((image, index) => (
         <div
@@ -62,14 +66,13 @@ const Hero = () => {
           <img 
             src={image} 
             alt=""
-            className="w-full h-full object-contain md:object-cover object-center brightness-110 contrast-[0.95] saturate-[1.05]"
-            style={{ backgroundColor: 'hsl(25 20% 12%)' }}
+            className="w-full h-full object-cover object-center brightness-105 contrast-[1.02] saturate-[1.08]"
           />
         </div>
       ))}
       
-      {/* Gradient overlay for text legibility - softer than pure black */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
+      {/* Gradient overlay - warm tones instead of pure black */}
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-charcoal/55 to-charcoal/65" />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 py-20 text-center">
